@@ -100,7 +100,8 @@ git clone https://github.com/your-username/pdf-invoice-automation.git
    - UiPath.Excel.Activities  
    - UiPath.System.Activities  
    - UiPath.PDF.Activities  
-   - UiPath.UIAutomation.Activities  
+   - UiPath.UIAutomation.Activities
+   - UiPath.OCR.Activities
 5. Run the workflow.  
 6. Check Excel outputs in the repo.  
 
