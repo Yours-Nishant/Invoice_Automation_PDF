@@ -1,88 +1,107 @@
 # 📑 Advanced PDF Invoice Processing & Reporting Automation 🤖  
 
 ![UiPath](https://img.shields.io/badge/Made%20with-UiPath-blue)  
-![Excel](https://img.shields.io/badge/Excel-Automation-green)  
+![Excel](https://img.shields.io/badge/Excel-Reporting-green)  
 ![Status](https://img.shields.io/badge/Status-Completed-success)  
 ![License](https://img.shields.io/badge/License-Nishant-yellow)  
 
 ---
 
-## 📌 Overview
-A **UiPath RPA Bot** that automates the complete cycle of **invoice processing**:  
-- Extracts details from PDF invoices (both text-based & scanned)  
-- Validates the data  
-- Writes clean records into Excel trackers  
-- Generates monthly vendor reports  
-- Handles errors & archives completed files  
+## 📌 Overview  
+This project automates the **processing of invoices from PDF files** and generates **monthly vendor reports** using UiPath Studio.  
 
-This project demonstrates how **automation can transform financial workflows** by reducing manual effort, improving accuracy, and saving time.  
+The bot extracts data such as **Invoice Number, Date, Vendor Name, and Amount**, validates entries, writes them into an Excel tracker, calculates monthly totals, and generates structured summary reports. It also handles errors and archives processed files automatically. 🚀  
 
 ---
 
-## 🗂 Folder Structure
-The bot works with three main folders:  
-
-- 📂 **Input** → Contains all new invoices (PDFs) to be processed  
-- 📦 **Archive** → Stores all successfully processed invoices  
-- ⚠️ **Error** → Stores problematic invoices that failed during processing  
-
-*(Sample PDFs are included inside the **Input** folder for testing.)*  
+## 🔍 The Problem  
+- Accountants spend hours manually processing invoices every month.  
+- Manual entry is **time-consuming**, **error-prone**, and **repetitive**.  
+- Generating monthly vendor reports requires repetitive Excel tasks.  
+- Archiving and error handling increase workload.  
 
 ---
 
-## 📊 Excel Outputs
-The bot generates and maintains three Excel files:  
-
-1. **Records.xlsx** → Master tracker containing all successfully processed invoices  
-2. **Records_Error.xlsx** → Log of invoices that failed validation (e.g., missing fields, invalid data)  
-3. **Monthly_Salary.xlsx** → Vendor-wise monthly summary report (calculated using loops, without pivots)  
-
----
-
-## 🔍 Process Flow
-Here’s the complete step-by-step workflow:  
-
-1. **Scan Input Folder** → Reads all invoice PDFs inside *Input*  
-2. **OCR + Regex Extraction** → Extracts Invoice Number, Date, Vendor, and Amount  
-3. **Validation Rules Applied** →  
-   - Amount must be greater than 0  
-   - Date must be in correct format  
-   - All key fields must be present  
-4. **Valid Invoices → Records.xlsx**  
-5. **Invalid Invoices → Records_Error.xlsx**  
-6. **Generate Monthly Report → Monthly_Salary.xlsx** using For Each Row loop  
-7. **Move Valid PDFs → Archive folder**  
-8. **Move Invalid PDFs → Error folder**  
-9. **Log Errors** → All issues recorded for review  
+## 💡 The Solution  
+The UiPath workflow solves these challenges by:  
+1️⃣ Reading both **text-based & scanned PDFs**  
+2️⃣ Extracting key fields with **OCR + Regex**  
+3️⃣ Validating data (e.g., Amount > 0, Date format)  
+4️⃣ Writing records into a **Master Excel Tracker**  
+5️⃣ Using **For Each Row loops** to calculate vendor-wise monthly totals  
+6️⃣ Generating **summary reports** in Excel  
+7️⃣ Archiving successfully processed invoices  
+8️⃣ Logging errors for unprocessable files  
 
 ---
 
-## ⚙️ Tech Stack
-- **UiPath Studio** 🤖 (OCR, Regex, Excel, File Handling)  
-- **Excel** 📊 (Master Records, Error Log, Monthly Summary Report)  
-- **Document Understanding Framework** 📝  
-- **Validation & Exception Handling** ⚡  
+## 🛠️ How It Works (Step-by-Step)  
+1. 📂 **Folder Scan** → Reads all PDFs from the *Input* folder  
+2. 🔍 **OCR + Regex** → Extracts fields (Invoice No, Date, Vendor, Amount)  
+3. 🧮 **Validation** → Ensures values are correct  
+4. 📊 **Excel Write Range** → Updates Master Excel Tracker (Records.xlsx)  
+5. 🔄 **For Each Row** → Loops through data and calculates vendor totals  
+6. 📈 **Excel Report Generation** → Monthly summary report created  
+7. 📦 **File Handling** →  
+   - ✅ Move valid invoices to *Archive*  
+   - ⚠️ Move invalid/unreadable invoices to *Error*  
+8. 📝 **Logging** → Errors written to *Records_Error.xlsx*  
 
 ---
 
-## 🚀 Impact
-- ⏳ Reduced processing time **from hours ➝ minutes**  
-- ✅ Eliminated manual errors with **automated validation**  
-- 📊 Vendor-wise monthly reporting generated dynamically  
-- 🔄 Built a **scalable, reusable, and efficient automation bot**  
+---
+
+## 📊 Output Files  
+- **Records.xlsx** → All valid invoice entries  
+- **Records_Error.xlsx** → Errors & failed extractions  
+- **Monthly_Summary.xlsx** → Vendor-wise monthly totals  
+
+*(Sample Excel outputs and sample invoices are included in this repo.)*  
 
 ---
 
-## 🌟 Key Learnings
-- Hands-on with **OCR & Regex** for unstructured PDF data  
-- Implemented **For Each Row loops** for reporting (without pivot tables)  
-- Applied **Exception Handling** for error-proof automation  
-- Understood how **RPA can streamline finance & accounting processes**  
+## ⚙️ Tech Stack & Activities Used  
+- **UiPath Studio** 🤖  
+- **Activities Used:**  
+  - Read PDF Text / Read PDF with OCR  
+  - Matches (Regex)  
+  - If / Assign (Validation Logic)  
+  - Excel Write Range / Append Range  
+  - For Each Row (Vendor totals)  
+  - Move File (Archiving & Error handling)  
+  - Try Catch (Exception handling)  
 
 ---
 
-## ▶️ How to Run This Bot
+## 🚀 Impact  
+- ⏳ Reduced processing time from **hours → minutes**  
+- ✅ Improved **accuracy** and reduced manual errors  
+- 📊 Automated vendor-wise monthly reporting (without PivotTables, using loops)  
+- 🔄 Built a **scalable, reusable, and efficient bot**  
 
-### 1. Clone or Download Repository
+---
+
+## 🌟 Key Learnings  
+- Hands-on with **OCR & Regex** for text extraction  
+- Applied **For Each Row** for reporting logic  
+- Learned **validation & exception handling** in UiPath  
+- Understood how **automation transforms finance workflows**  
+
+---
+
+## ▶️ How to Run This Project  
+1. Clone this repository to your system.
 ```bash
 git clone https://github.com/your-username/pdf-invoice-automation.git
+```
+2. Place sample invoice PDFs inside the **Input** folder.  
+3. Open `Main.xaml` in **UiPath Studio**.  
+4. Ensure the following dependencies are installed:  
+   - UiPath.Excel.Activities  
+   - UiPath.System.Activities  
+   - UiPath.PDF.Activities  
+   - UiPath.UIAutomation.Activities  
+5. Run the workflow.  
+6. Check Excel outputs in the repo.  
+
+---
